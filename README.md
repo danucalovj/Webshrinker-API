@@ -13,6 +13,7 @@ For official documentation visit https://docs.webshrinker.com/v3/website-categor
 This API returns the category (single) or categories (multiple) of a particular website. Webshrinker can return the categories based on either Webshrinker's taxonomy or the standard IAB Content Taxonomy.
 
 ### Example
+The following example returns the categories using the default IAB Content Taxonomy:
 
 ```javascript
 var Webshrinker = require('webshrinker-api');

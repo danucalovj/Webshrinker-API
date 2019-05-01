@@ -221,7 +221,7 @@ This API captures a screenshot of what a particular website looks like in a brow
 
 Here's an example of a screenshot captured with this API (...this Github page):
 
-
+[!Image of Screenshot](https://raw.githubusercontent.com/danucalovj/Webshrinker-API/master/Sample_Screenshot/aHR0cHM6Ly9naXRodWIuY29tL2RhbnVjYWxvdmovV2Vic2hyaW5rZXItQVBJ.png)
 
 ### Example
 IMPORTANT: Image size must be passed to the GetScreenshot function. The following image sizes/inputs are supported per the official documentation:

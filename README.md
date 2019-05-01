@@ -49,5 +49,29 @@ This should return something similar to:
 }
 ```
 
+To change the taxonomy to use Webshrinker's taxonomy, specify the taxonomy as "webshrinker" in the options:
+
+```javascript
+var webshrinkerClient = new Webshrinker({key: "YOUR_API_KEY", secret: "YOUR_API_SECRET", taxonomy: "webshrinker"});
+```
+
+This should return the categories using Webshrinker's taxonomy, which is much more simplified than the IAB Content Taxonomy:
+
+```json
+{
+    "categories": [
+        {
+            "id": "business",
+            "label": "Business"
+        },
+        {
+            "id": "informationtech",
+            "label": "Information Technology"
+        }
+    ],
+    "url": "webshrinker.com"
+}
+```
+
 ## TODO
 Currently this NPM module only supports WebShrinker's Website Category API. Future releases will support the Website Domain API and Website Screenshot API.

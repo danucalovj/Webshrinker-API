@@ -41,8 +41,16 @@ Webshrinker.prototype.GetCategories = function GetCategories(URL){
     var FULL_URL = API_URL + B64_URL + taxonomy;
     return this.dispatch(FULL_URL).then(response => {
         return response.data.data[0];
-    })
+    });
     
+}
+
+Webshrinker.prototype.ListAllCategories = function ListAllCategories(){
+    var taxonomy = this.taxonomy || '';
+    var FULL_URL = API_URL + taxonomy;
+    return this.dispatch(FULL_URL).then(response => {
+        return response.data.data;
+    });
 }
 
 module.exports = Webshrinker;

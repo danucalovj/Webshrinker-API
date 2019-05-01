@@ -1,6 +1,6 @@
 {
   "name": "webshrinker-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Unnoficial Node.js Client for the Webshrinker APIs available at https://www.webshrinker.com",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,9 @@
     "webshrinker",
     "api",
     "domain",
-    "tools"
+    "tools",
+    "screenshot",
+    "scraper"
   ],
   "author": "Jonathan Danucalov",
   "license": "ISC",

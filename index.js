@@ -3,6 +3,7 @@ var axios = require("axios");
 // WebShrinker API Base URL
 var API_CATEGORIES_URL = 'https://api.webshrinker.com/categories/v3/';
 var API_HOSTS_URL = 'https://api.webshrinker.com/hosts/v3/';
+var API_SCREENSHOT_URL = 'https://api.webshrinker.com/thumbnails/v2/';
 
 // Constructor
 class Webshrinker {
@@ -57,6 +58,17 @@ Webshrinker.prototype.ListAllCategories = function ListAllCategories(){
 Webshrinker.prototype.GetDomain = function GetDomain(DOMAIN_NAME){
     var B64_URL = Buffer.from(DOMAIN_NAME).toString('base64');
     var FULL_URL = API_HOSTS_URL + B64_URL;
+    return this.dispatch(FULL_URL).then(response => {
+        return response.data;
+    });
+}
+
+Webshrinker.prototype.GetScreenshot = function GetScreenshot(DOMAIN_NAME, SIZE){
+    if (SIZE === undefined || SIZE == ''){
+        throw new Error("No image size specified");
+    }
+    var B64_URL = Buffer.from(DOMAIN_NAME).toString('base64');
+    var FULL_URL = API_SCREENSHOT_URL + B64_URL + '/info?size=' + SIZE;
     return this.dispatch(FULL_URL).then(response => {
         return response.data;
     });

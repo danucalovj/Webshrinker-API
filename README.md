@@ -1,11 +1,11 @@
 # Webshrinker-API
-Unnoficial Node.js Client for the Webshrinker APIs (v3) available at https://www.webshrinker.com
+Unnoficial Node.js Client for the Webshrinker APIs available at https://www.webshrinker.com
 
 Supported APIs:
 
 * Website Category API
 * Website Domain API
-* Future: Website Screenshot API
+* Website Screenshot API
 
 ## Installation
 To install via NPM, run the following command:
@@ -214,7 +214,49 @@ This should return the following response:
 }
 ```
 
-## TODO
-Currently this NPM module only supports WebShrinker's Website Category API and the Domain API. Additional options for the Domain API like start/end dates, limits and sorting are not supported at the moment.
+## Website Screenshot API
+For official documentation visit https://docs.webshrinker.com/v2/website-screenshot-api.html.
 
-Future releases will support the Website Screenshot API.
+This API captures a screenshot of what a particular website looks like in a browser window. The response return a URL (image) for the screenshot.
+
+### Example
+IMPORTANT: Image size must be passed to the GetScreenshot function. The following image sizes/inputs are supported per the official documentation:
+
+* micro
+* tiny
+* verysmall
+* small
+* large
+* xlarge
+* 2xlarge
+* 3xlarge
+* 4xlarge
+* Custom size like "320x240"
+
+```javascript
+var Webshrinker = require('webshrinker-api');
+
+var webshrinkerClient = new Webshrinker({key: "YOUR_API_KEY", secret: "YOUR_API_SECRET"});
+
+webshrinkerClient.GetScreenshot("www.webshrinker.com", "xlarge").then(function(data){
+    console.log(JSON.stringify(data));
+});
+```
+
+This should return the following response:
+
+```json
+{
+    "data": [
+        {
+            "image": "https://api.webshrinker.com/thumbnails/v2/aHR0cHM6Ly93d3cud2Vic2hyaW5rZXIuY29tLw==?size=xlarge&key=TvQu6ARhl2Zs7BVV1plU&hash=97462c219208614dec16cf9098433f6f",
+            "state": "READY",
+            "updated": "Mon, 30 May 2016 23:13:06 +0000",
+            "url": "https://www.webshrinker.com/"
+        }
+    ]
+}
+```
+
+## TODO
+Future releases will support adding additional variables to requests. For example, the Website Domain API can be paginated, sorted and filtered by date - this module currently does not support this functionality.

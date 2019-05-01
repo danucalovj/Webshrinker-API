@@ -59,6 +59,14 @@ var webshrinkerClient = new Webshrinker({
     });
 ```
 
+Then, call the GetCategories function:
+
+```javascript
+webshrinkerClient.GetCategories("www.webshrinker.com").then(function(data){
+    console.log(data);
+});
+```
+
 This should return the categories using Webshrinker's taxonomy, which is much more simplified than the IAB Content Taxonomy:
 
 ```json

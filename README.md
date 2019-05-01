@@ -219,6 +219,10 @@ For official documentation visit https://docs.webshrinker.com/v2/website-screens
 
 This API captures a screenshot of what a particular website looks like in a browser window. The response return a URL (image) for the screenshot.
 
+Here's an example of a screenshot captured with this API (...this Github page):
+
+
+
 ### Example
 IMPORTANT: Image size must be passed to the GetScreenshot function. The following image sizes/inputs are supported per the official documentation:
 

@@ -4,7 +4,8 @@ Unnoficial Node.js Client for the Webshrinker APIs (v3) available at https://www
 Supported APIs:
 
 * Website Category API
-* Domain API
+* Website Domain API
+* Future: Website Screenshot API
 
 ## Installation
 To install via NPM, run the following command:
@@ -151,7 +152,7 @@ var webshrinkerClient = new Webshrinker({
     });
 ```
 
-## Domain API
+## Website Domain API
 For official documentation visit https://docs.webshrinker.com/v3/website-domain-api.html.
 
 This API returns information about a given domain including categories, language, hosting servier IP addresses, known sub-domain names and inbound/outbound hyperlinks.

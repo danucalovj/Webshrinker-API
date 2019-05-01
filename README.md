@@ -1,6 +1,11 @@
 # Webshrinker-API
 Unnoficial Node.js Client for the Webshrinker APIs (v3) available at https://www.webshrinker.com
 
+Supported APIs:
+
+#### Website Category API
+#### Domain API
+
 ## Installation
 To install via NPM, run the following command:
 ```
@@ -146,5 +151,69 @@ var webshrinkerClient = new Webshrinker({
     });
 ```
 
+## Domain API
+For official documentation visit https://docs.webshrinker.com/v3/website-domain-api.html.
+
+This API returns information about a given domain including categories, language, hosting servier IP addresses, known sub-domain names and inbound/outbound hyperlinks.
+
+### Example
+
+```javascript
+var Webshrinker = require('webshrinker-api');
+
+var webshrinkerClient = new Webshrinker({key: "YOUR_API_KEY", secret: "YOUR_API_SECRET"});
+
+webshrinkerClient.GetDomain("www.webshrinker.com").then(function(data){
+    console.log(JSON.stringify(data));
+});
+```
+
+This should return the following response:
+
+```json
+{
+    "data": [
+        {
+            "start_date": "2016-08-01",
+            "end_date": "2017-10-31",
+            "language": "en",
+            "categories": [
+                "business",
+                "informationtech"
+            ],
+            "host": "webshrinker.com",
+            "related": [
+                "docs.webshrinker.com",
+                "mautic.webshrinker.com",
+                "dashboard.webshrinker.com"
+            ],
+            "addresses": {
+                "ipv4": {
+                    "104.25.241.16": [
+                        "2017-07-18T21:44:33Z"
+                    ],
+                    "64.90.40.82": [
+                        "2017-07-12T03:17:17Z"
+                    ],
+                    "104.25.183.29": [
+                        "2016-10-25T15:27:58Z"
+                    ],
+                    "104.25.182.29": [
+                        "2016-08-31T00:00:00Z"
+                    ]
+                }
+            }
+        }
+    ],
+    "paging": {
+        "cursors": {},
+        "next": "",
+        "count": 7
+    }
+}
+```
+
 ## TODO
-Currently this NPM module only supports WebShrinker's Website Category API. Future releases will support the Website Domain API and Website Screenshot API.
+Currently this NPM module only supports WebShrinker's Website Category API and the Domain API. Additional options for the Domain API like start/end dates, limits and sorting are not supported at the moment.
+
+Future releases will support the Website Screenshot API.

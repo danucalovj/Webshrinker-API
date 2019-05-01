@@ -1,7 +1,8 @@
 var axios = require("axios");
 
 // WebShrinker API Base URL
-var API_URL = 'https://api.webshrinker.com/categories/v3/';
+var API_CATEGORIES_URL = 'https://api.webshrinker.com/categories/v3/';
+var API_HOSTS_URL = 'https://api.webshrinker.com/hosts/v3/';
 
 // Constructor
 class Webshrinker {
@@ -27,7 +28,7 @@ class Webshrinker {
 Webshrinker.prototype.dispatch = function(FULL_URL) {
     return axios.create({
         baseURL: FULL_URL,
-        timeout: 5000,
+        timeout: 10000,
         headers: {
             'Content-Type': "application/json; charset=utf-8",
             'Authorization': this.authorization
@@ -38,7 +39,7 @@ Webshrinker.prototype.dispatch = function(FULL_URL) {
 Webshrinker.prototype.GetCategories = function GetCategories(URL){
     var B64_URL = Buffer.from(URL).toString('base64');
     var taxonomy = this.taxonomy || '';
-    var FULL_URL = API_URL + B64_URL + taxonomy;
+    var FULL_URL = API_CATEGORIES_URL + B64_URL + taxonomy;
     return this.dispatch(FULL_URL).then(response => {
         return response.data.data[0];
     });
@@ -47,9 +48,17 @@ Webshrinker.prototype.GetCategories = function GetCategories(URL){
 
 Webshrinker.prototype.ListAllCategories = function ListAllCategories(){
     var taxonomy = this.taxonomy || '';
-    var FULL_URL = API_URL + taxonomy;
+    var FULL_URL = API_CATEGORIES_URL + taxonomy;
     return this.dispatch(FULL_URL).then(response => {
         return response.data.data;
+    });
+}
+
+Webshrinker.prototype.GetDomain = function GetDomain(DOMAIN_NAME){
+    var B64_URL = Buffer.from(DOMAIN_NAME).toString('base64');
+    var FULL_URL = API_HOSTS_URL + B64_URL;
+    return this.dispatch(FULL_URL).then(response => {
+        return response.data;
     });
 }
 

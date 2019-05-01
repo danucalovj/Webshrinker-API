@@ -1,0 +1,28 @@
+{
+  "name": "webshrinker-api",
+  "version": "1.0.0",
+  "description": "Unnoficial Node.js Client for the Webshrinker APIs available at https://www.webshrinker.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danucalovj/Webshrinker-API.git"
+  },
+  "keywords": [
+    "webshrinker",
+    "api",
+    "domain",
+    "tools"
+  ],
+  "author": "Jonathan Danucalov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danucalovj/Webshrinker-API/issues"
+  },
+  "homepage": "https://github.com/danucalovj/Webshrinker-API#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

@@ -3,8 +3,8 @@ Unnoficial Node.js Client for the Webshrinker APIs (v3) available at https://www
 
 Supported APIs:
 
-#### Website Category API
-#### Domain API
+* Website Category API
+* Domain API
 
 ## Installation
 To install via NPM, run the following command:

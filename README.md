@@ -52,7 +52,11 @@ This should return something similar to:
 To change the taxonomy to use Webshrinker's taxonomy, specify the taxonomy as "webshrinker" in the options:
 
 ```javascript
-var webshrinkerClient = new Webshrinker({key: "YOUR_API_KEY", secret: "YOUR_API_SECRET", taxonomy: "webshrinker"});
+var webshrinkerClient = new Webshrinker({
+    key: "YOUR_API_KEY", 
+    secret: "YOUR_API_SECRET", 
+    taxonomy: "webshrinker"
+    });
 ```
 
 This should return the categories using Webshrinker's taxonomy, which is much more simplified than the IAB Content Taxonomy:

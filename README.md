@@ -155,7 +155,7 @@ var webshrinkerClient = new Webshrinker({
 ## Website Domain API
 For official documentation visit https://docs.webshrinker.com/v3/website-domain-api.html.
 
-This API returns information about a given domain including categories, language, hosting servier IP addresses, known sub-domain names and inbound/outbound hyperlinks.
+This API returns information about a given domain including categories, language, hosting server IP addresses, known sub-domain names and inbound/outbound hyperlinks.
 
 ### Example
 
@@ -259,6 +259,28 @@ This should return the following response:
             "url": "https://www.webshrinker.com/"
         }
     ]
+}
+```
+
+## Error Handlers
+Starting in version 1.0.4, status code error handlers are introduced in the code. The following codes are generated for responses that are not equal to a 200 HTTP Status Code:
+
+* **202**	Accepted – Your request was successful but is still being processed on the server
+* **400**	Bad Request – One or more parameters in the request are invalid
+* **401**	Unauthorized – Your API key/secret key is wrong or the key doesn’t have permission
+* **402**	Payment Required – Your account balance is used up, purchase additional requests in the account dashboard
+* **429**	Too Many Requests – Too many requests in a short time
+* **500**	Internal Server Error – There was an issue processing the request, try again
+
+For this reason, and general coding best practices, make sure to encapsulate each method in a Try...Catch, i.e:
+
+```javascript
+try {
+    webshrinkerClient.("www.webshrinker.com", "xlarge").then(function(data){
+        // Do something
+    }
+} catch (error){
+    // Do something with error
 }
 ```
 
